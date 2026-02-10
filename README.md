@@ -28,3 +28,6 @@ Evidence:
 Accessed Azure Monitor Logs using the new Queries Hub UI.
 No data was present as no resources were generating logs yet.
 <img width="1846" height="766" alt="image" src="https://github.com/user-attachments/assets/5596dd26-78e3-4228-b2cb-27c1a6360b96" />
+
+#### Task 1: Enable Azure Monitor and Log Analytics
+<img width="930" height="383" alt="ex4-log-analytics-workspace" src="https://github.com/user-attachments/assets/d6f9f6fe-3368-4a2b-81c4-17d8fb052df2" />
