@@ -31,3 +31,68 @@ No data was present as no resources were generating logs yet.
 
 #### Task 1: Enable Azure Monitor and Log Analytics
 <img width="930" height="383" alt="ex4-log-analytics-workspace" src="https://github.com/user-attachments/assets/d6f9f6fe-3368-4a2b-81c4-17d8fb052df2" />
+
+### Exercise 4: Storage Account Logging and Monitoring
+
+This exercise focuses on configuring Azure Storage diagnostic logging and validating log ingestion into Azure Monitor Log Analytics. The goal is to generate storage activity and confirm visibility using KQL queries.
+
+Objectives
+Create a storage account for centralised logging
+Enable diagnostic settings for Azure Blob Storage
+Send logs and metrics to Log Analytics
+Generate storage activity to validate ingestion
+Query logs using KQL
+
+Azure Resources Used:
+Azure Storage Account
+Azure Blob Storage
+Azure Monitor
+Log Analytics Workspace
+Azure Portal
+
+Configuration Steps:
+Created a standard Azure Storage account for logging.
+Navigated to Monitoring → Diagnostic settings.
+Selected the Blob service under the storage account.
+
+Created a diagnostic setting with:
+StorageRead
+StorageWrite
+StorageDelete
+Transaction metrics
+Sent all logs and metrics to the Log Analytics workspace.
+Validation Process
+
+To generate log data:
+Created a blob container
+Uploaded a test file
+Deleted the file
+Deleted the container
+After a short ingestion delay, logs were queried in Log Analytics.
+
+KQL query used:
+StorageBlobLogs
+| order by TimeGenerated desc
+
+Evidence
+Screenshots captured during this exercise:
+ex4-blob-diagnostic-settings.png
+<img width="932" height="389" alt="ex4-blob-diagnostic-settings" src="https://github.com/user-attachments/assets/0408df17-be29-42f4-ad03-a4f3c29a8964" />
+
+ex4-storagebloblogs.png
+<img width="932" height="387" alt="ex4-storagebloblogs" src="https://github.com/user-attachments/assets/f478b331-468c-4a01-8521-83b8fdab3680" />
+
+These confirm diagnostic settings and successful log ingestion.
+
+Key Learnings
+Azure Storage does not log activity by default.
+Diagnostic settings must be configured per storage service.
+Log ingestion requires actual resource activity.
+Validation using KQL is essential to confirm visibility.
+Relevance to Security Operations
+
+This exercise mirrors real-world SOC workflows:
+Enabling telemetry
+Verifying data ingestion
+Using logs for investigation and auditing
+Understanding Azure-native logging architecture
